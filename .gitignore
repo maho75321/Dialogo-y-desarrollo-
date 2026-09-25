@@ -1,0 +1,27 @@
+# Secretos y dependencias: no versionar.
+config/mail.php
+.env
+.env.*
+vendor/
+
+# Logs y temporales
+*.log
+logs/
+
+# Archivos subidos por usuarios (se mantiene la estructura y .htaccess)
+uploads/boletines/*
+uploads/podcasts/*
+uploads/noticias/*
+uploads/reportajes/*
+!uploads/*/.htaccess
+
+# Paquetes / temporales / sistema / IDE (no necesarios para PHP)
+node_modules/
+*.zip
+*.rar
+*.tmp
+*~
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
