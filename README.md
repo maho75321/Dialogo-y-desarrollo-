@@ -77,7 +77,7 @@ revista-digital/
 Consultas públicas filtran `estado='publicado'` (salvo boletines).
 Los borradores son invisibles en portada, listados y fichas directas por id.
 
-## 3. Arquitectura (qué toca qué)
+## 3. Arquitectura 
 
 - **Portada y fichas** (`public/*.php`): solo leen con PDO preparado y pintan
   con `includes/header.php` + `footer.php` + `assets/css/style.css`.
@@ -99,7 +99,7 @@ Los borradores son invisibles en portada, listados y fichas directas por id.
   `p, br, strong, b, em, i, u, h2–h4, ul, ol, li, blockquote, a, span`.
 - **`config/`**: `database.php` (PDO) y `mail.php` (SMTP + cargador `.env`).
 
-## 4. Módulos públicos (archivo → funcionalidad → qué cambiar)
+## 4. Módulos públicos 
 
 - **`public/index.php`**: destacado único (`es_destacado=1`, si no hay muestra
   estado vacío, nunca promociona otro), 3 reportajes, 3 noticias, último
@@ -136,7 +136,7 @@ Los borradores son invisibles en portada, listados y fichas directas por id.
   (audio/iframe, cierra con ×/fondo/Escape y destruye el player).
   **`assets/js/main.js`**: navbar, scroll, movetop y modal.
 
-## 5. Panel admin (roles y flujos)
+## 5. Panel admin 
 
 - **Auth**: `login.php` (`password_verify`, sesión regenerada,
   `$_SESSION[usuario_id|rol]`), `logout.php`, `cambiar-password.php`.
@@ -180,7 +180,7 @@ Los borradores son invisibles en portada, listados y fichas directas por id.
   la galería del admin y qué rutas acepta.
 - `admin_guardar_archivo_subido()` – límites y tipos de subida.
 
-## 7. Seguridad (resumen)
+## 7. Seguridad 
 
 Consultas 100 % preparadas; sesiones con CSRF en cada POST de admin;
 contraseñas solo `password_hash/password_verify`; subidas con
@@ -189,8 +189,7 @@ contraseñas solo `password_hash/password_verify`; subidas con
 sanitizado al guardar y al mostrar; correos con PHPMailer/SMTP y secretos
 fuera de Git (`.gitignore` cubre `.env`, `config/mail.php`, `vendor/`).
 
-## 8. Optimización aplicada (sin quitar funcionalidad ni cambiar diseño)
-
+## 8. Optimización aplicada 
 Botones muertos arreglados: contacto ahora envía por SMTP (antes `mailto:`
 como `action`, inútil en móvil); PDFs de boletín solo enlazan si el archivo
 existe; podcasts/videos nunca generan `href` con URLs crudas inválidas;
