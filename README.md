@@ -189,24 +189,9 @@ contraseñas solo `password_hash/password_verify`; subidas con
 sanitizado al guardar y al mostrar; correos con PHPMailer/SMTP y secretos
 fuera de Git (`.gitignore` cubre `.env`, `config/mail.php`, `vendor/`).
 
-## 8. Optimización aplicada 
-Botones muertos arreglados: contacto ahora envía por SMTP (antes `mailto:`
-como `action`, inútil en móvil); PDFs de boletín solo enlazan si el archivo
-existe; podcasts/videos nunca generan `href` con URLs crudas inválidas;
-Alianzas tiene contenido + CTA en vez de mensaje de BD; Mapa tiene enlace
-alternativo y entrada en el footer; Actualidad apunta a `noticias.php`;
-modal movido al footer global (Ampliar funciona también en
-podcasts/videos); tarjetas sin medio ya no fingen acción (sin “Ver todos”
-falso); paginación en noticias/boletines/podcasts/videos como reportajes;
-`#movetop` oculto hasta scroll. Código: `nombreAutorBase()` único,
-`admin_url_valida()` delega en `urlExternaValida()`, alias de normalización
-media, `admin_recortar()` multibyte, `podcastCardDatos()/videoCardDatos()/
-obtenerPaginado()/boletinPdfDisponible()` (una sola fuente de verdad),
-contacto con `Reply-To`. SQL: `revista_digital_consolidado.sql` canónico e
-idempotente (probado: doble importación OK, 9 tablas); originales archivados
-en `database/legacy/` (incluido `restablecer_admin.php`, fuera de URL pública).
 
-## 9. Pendientes conocidos
+
+## 8. Pendientes conocidos
 
 - `uploads/boletines/` está vacío: los boletines muestran “PDF no disponible”
   hasta que subas los PDF desde el panel.
@@ -217,7 +202,7 @@ en `database/legacy/` (incluido `restablecer_admin.php`, fuera de URL pública).
 - Sin buscador ni filtros públicos; `esUrlEmbebible()` quedó en desuso
   (se usa `videoCardDatos()`).
 
-## 10. Comandos útiles
+## 9. Comandos útiles
 
 ```bash
 /opt/lampp/bin/php -l public/index.php public/admin/login.php \
